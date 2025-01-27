@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 from .preprocess import clean_text
 from .model import predict
-from .metrics import calculate_accuracy
+# from .metrics import calculate_accuracy
 
 app = FastAPI()
 
