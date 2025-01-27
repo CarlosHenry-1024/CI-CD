@@ -1,4 +1,5 @@
 # 使用官方 Python 镜像作为基础镜像
+# 基础镜像
 FROM python:3.10-slim
 
 # 设置工作目录
@@ -16,4 +17,4 @@ RUN useradd -m appuser && chown -R appuser /app
 USER appuser
 
 # 设置默认启动命令
-CMD ["python", "src/train.py"]
+CMD ["python", "app/main.py"]

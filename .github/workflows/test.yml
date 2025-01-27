@@ -52,15 +52,20 @@ jobs:
         username: ${{ secrets.DOCKER_HUB_USERNAME }}
         password: ${{ secrets.DOCKER_HUB_TOKEN }}
 
-#    - name: Build Docker image
-#      run: docker build -t 865864633/image-classification:latest .
+    - name: Build Docker image
+      run: docker build -t 865864633/sentiment-analysis:latest .
+
+    - name: Install Trivy
+      run: |
+        wget https://github.com/aquasecurity/trivy/releases/latest/download/trivy_0.44.0_Linux-64bit.tar.gz
+        tar -xvf trivy_0.44.0_Linux-64bit.tar.gz
+        sudo mv trivy /usr/local/bin/
 
 # 8. 检查 Dockerfile 安全性
     - name: Scan Dockerfile
-      run: |
-        sudo apt-get install -y trivy
+      run:
         trivy config --severity HIGH,CRITICAL .
 
 ## 9. 推送 Docker 镜像
-#    - name: Push Docker image
-#      run: docker push 865864633/image-classification:latest
+    - name: Push Docker image
+      run: docker push 865864633/sentiment-analysis:latest
