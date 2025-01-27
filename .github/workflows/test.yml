@@ -41,7 +41,8 @@ jobs:
     - name: Audit dependencies
       run: |
         pip install pip-audit
-        pip-audit
+        pip-audit 
+
     - name: Debug Secrets
       run: |
         echo "DOCKER_HUB_USERNAME: ${{ secrets.DOCKER_HUB_USERNAME }}"
@@ -62,6 +63,7 @@ jobs:
 # 8. 检查 Dockerfile 安全性
     - name: Scan Dockerfile
       run:
+        sudo apt-get update
         sudo apt-get install -y trivy
         trivy config --severity HIGH,CRITICAL .
 
