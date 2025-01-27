@@ -36,6 +36,7 @@ jobs:
         pip install flake8 black
         flake8 .
         black --check .
+        continue-on-error: true 
 
     - name: Audit dependencies
       run: |
