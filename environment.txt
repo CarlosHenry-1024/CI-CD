@@ -1,0 +1,8 @@
+fastapi
+uvicorn
+transformers
+torch
+pytest
+pip-audit
+flake8
+prometheus-fastapi-instrumentator
