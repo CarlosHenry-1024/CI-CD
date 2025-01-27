@@ -26,6 +26,8 @@ jobs:
 
     - name: Install dependencies
       run: |
+        pip install --upgrade pip
+        pip install setuptools>=65.5.1
         pip install -r environment.txt
 
     - name: Run tests
