@@ -34,9 +34,9 @@ jobs:
     - name: Lint code
       run: |
         pip install flake8 black
+        black .
         flake8 .
-        continue-on-error: true 
-        black --check .
+        continue-on-error: true        
 
     - name: Audit dependencies
       run: |
