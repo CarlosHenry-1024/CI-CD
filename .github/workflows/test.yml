@@ -62,7 +62,7 @@ jobs:
 
 # 8. 检查 Dockerfile 安全性
     - name: Scan Dockerfile
-      run:
+      run: |
         sudo apt-get install -y trivy
         trivy config .
 
